@@ -1,7 +1,7 @@
 CREATE TABLE "task" (
   "task_id" int PRIMARY KEY,
   "list_id" int,
-  "discription" varchar,
+  "description" varchar,
   "done" boolean,
   "create_at" timestamp,
   "update_at" timestamp
