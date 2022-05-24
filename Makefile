@@ -17,7 +17,7 @@ sqlc:
 	sqlc generate
 
 sqlcDocker:
-	docker run --rm -v D:\henryS\go-todo:/src -w /src kjconroy/sqlc generate
+	docker run --rm -v D:\henryS\go-todo-system:/src -w /src kjconroy/sqlc generate
 
 test:
 	go test -v -cover ./...
