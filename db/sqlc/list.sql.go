@@ -10,7 +10,7 @@ import (
 	"database/sql"
 )
 
-const createJob = `-- name: CreateJob :one
+const createList = `-- name: CreateList :one
 INSERT INTO list (
   list_id,
   list_name
@@ -20,13 +20,13 @@ INSERT INTO list (
 RETURNING list_id, list_name
 `
 
-type CreateJobParams struct {
+type CreateListParams struct {
 	ListID   int32          `json:"list_id"`
 	ListName sql.NullString `json:"list_name"`
 }
 
-func (q *Queries) CreateJob(ctx context.Context, arg CreateJobParams) (List, error) {
-	row := q.db.QueryRowContext(ctx, createJob, arg.ListID, arg.ListName)
+func (q *Queries) CreateList(ctx context.Context, arg CreateListParams) (List, error) {
+	row := q.db.QueryRowContext(ctx, createList, arg.ListID, arg.ListName)
 	var i List
 	err := row.Scan(&i.ListID, &i.ListName)
 	return i, err

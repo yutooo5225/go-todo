@@ -1,4 +1,4 @@
--- name: CreateJob :one
+-- name: CreateList :one
 INSERT INTO list (
   list_id,
   list_name

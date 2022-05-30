@@ -17,6 +17,9 @@ sqlc:
 	sqlc generate
 
 sqlcDocker:
-	docker run --rm -v D:\henryS\go-todo:/src -w /src kjconroy/sqlc generate
+	docker run --rm -v D:\henryS\go-todo-system:/src -w /src kjconroy/sqlc generate
 
-.PHONY: postgres createdxb dropdb migrateup migratedown sqlc sqlcDocker
+test:
+	go test -v -cover ./...
+
+.PHONY: postgres createdxb dropdb migrateup migratedown sqlc sqlcDocker test
